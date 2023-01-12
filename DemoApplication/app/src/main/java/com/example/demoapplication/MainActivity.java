@@ -37,6 +37,14 @@ public class MainActivity extends AppCompatActivity{
     TabLayout tabLayout;
     ViewPager viewPager;
 
+    //Icons for tabLayout
+    private int[] iconArray =  {
+            R.drawable.ic_baseline_settings_24,
+            R.drawable.ic_baseline_room_preferences_24,
+            R.drawable.ic_baseline_favorite_border_24
+    };
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,7 +55,6 @@ public class MainActivity extends AppCompatActivity{
 
         toolBar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolBar);
-
 
 
         if (getSupportActionBar()!=null){
@@ -62,10 +69,18 @@ public class MainActivity extends AppCompatActivity{
         tabLayout = (TabLayout) findViewById(R.id.tab_layout);
         viewPager = (ViewPager) findViewById(R.id.view_pager_1);
 
+        //adding tab items
         tabLayout.addTab(tabLayout.newTab().setText("Settings"));
         tabLayout.addTab(tabLayout.newTab().setText("preferences"));
         tabLayout.addTab(tabLayout.newTab().setText("favourites"));
+        tabLayout.addTab(tabLayout.newTab().setText("Settings1"));
+        tabLayout.addTab(tabLayout.newTab().setText("preferences1"));
+        tabLayout.addTab(tabLayout.newTab().setText("favourites1"));
         tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
+//        calling function for tab icons
+        setUpTabIcons();
+        tabLayout.setInlineLabel(true);
+
 
         final myAdapter adapter = new myAdapter(this,getSupportFragmentManager(),tabLayout.getTabCount());
         viewPager.setAdapter(adapter);
@@ -130,6 +145,18 @@ public class MainActivity extends AppCompatActivity{
 //        });
 
 
+
+    }
+
+    //function for tabIcons
+    private void setUpTabIcons() {
+
+        tabLayout.getTabAt(0).setIcon(iconArray[0]);
+        tabLayout.getTabAt(1).setIcon(iconArray[1]);
+        tabLayout.getTabAt(2).setIcon(iconArray[2]);
+        tabLayout.getTabAt(3).setIcon(iconArray[0]);
+        tabLayout.getTabAt(4).setIcon(iconArray[1]);
+        tabLayout.getTabAt(5).setIcon(iconArray[2]);
 
     }
 

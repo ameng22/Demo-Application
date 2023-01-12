@@ -29,6 +29,12 @@ public class myAdapter extends FragmentPagerAdapter {
                 return f2;
             case 2: Fragment f3 = new FavFragment();
                 return f3;
+            case 3: Fragment f4 = new SaveFragment();
+                return f4;
+            case 4: Fragment f5 = new CheckFragment();
+                return f5;
+            case 5: Fragment f6 = new CartFragment();
+                return f6;
             default:return null;
         }
     }

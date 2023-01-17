@@ -11,11 +11,6 @@ import android.view.ViewGroup;
 
 import java.util.ArrayList;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link CartFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
 public class CartFragment extends Fragment {
 
 
@@ -30,7 +25,9 @@ public class CartFragment extends Fragment {
 
         //RECYCLER ACTIVITY
 
-        RecyclerView recyclerView = (RecyclerView) findViewById(R.id.recyclerView);
+        View view = inflater.inflate(R.layout.fragment_cart, container, false);
+
+        RecyclerView recyclerView = (RecyclerView) view.findViewById(R.id.recyclerView);
 
         ArrayList<CourseModal> courseModalArrayList = new ArrayList<CourseModal>();
         courseModalArrayList.add(new CourseModal("DSA in Java", 4, R.drawable.car));
@@ -41,6 +38,6 @@ public class CartFragment extends Fragment {
         courseModalArrayList.add(new CourseModal("Java for Android", 4, R.drawable.car));
         courseModalArrayList.add(new CourseModal("HTML and CSS", 4, R.drawable.car));
 
-        return inflater.inflate(R.layout.fragment_cart, container, false);
+        return view;
     }
 }

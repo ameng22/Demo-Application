@@ -16,7 +16,16 @@ public class SaveActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_save);
 
+        String courseName = getIntent().getStringExtra("Name");
+        int courseRating = getIntent().getIntExtra("Rating",0);
+        int courseImage = getIntent().getIntExtra("Image",0);
+
         Fragment f2 = new SaveFragment();
+        Bundle args = new Bundle();
+        args.putString("Name",courseName);
+        args.putInt("Rating",courseRating);
+        args.putInt("Image",courseImage);
+        f2.setArguments(args);
         FragmentManager fm2 = getSupportFragmentManager();
         FragmentTransaction ft2 = fm2.beginTransaction();
         ft2.replace(R.id.save_act,f2).commit();

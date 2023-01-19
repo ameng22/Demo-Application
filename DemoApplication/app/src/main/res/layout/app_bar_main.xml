@@ -69,6 +69,12 @@
             />
     </androidx.core.widget.NestedScrollView>
 
-    <include layout="@layout/content_main"/>
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/container"
+        />
+
+<!--    <include layout="@layout/content_main"/>-->
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

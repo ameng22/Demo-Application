@@ -25,12 +25,13 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationView;
 import com.google.android.material.tabs.TabLayout;
 
 import java.util.ArrayList;
 
-public class MainActivity extends AppCompatActivity{
+public class MainActivity extends AppCompatActivity implements BottomNavigationView.OnNavigationItemSelectedListener {
 
     private int counter = 0;
     TextView textView;
@@ -39,6 +40,8 @@ public class MainActivity extends AppCompatActivity{
     Toolbar toolBar;
     TabLayout tabLayout;
     ViewPager viewPager;
+    //Bottom Navigation View
+    BottomNavigationView bottomNavigationView;
 
 //    //Icons for tabLayout
 //    private int[] iconArray =  {
@@ -147,6 +150,11 @@ public class MainActivity extends AppCompatActivity{
 //            }
 //        });
 
+        //Bottom Navigation View
+
+        bottomNavigationView = (BottomNavigationView) findViewById(R.id.bottom_nav_view);
+        bottomNavigationView.setOnNavigationItemSelectedListener(this);
+//        bottomNavigationView.setSelectedItemId(R.id.save_frag_menu);
 
     }
 
@@ -199,7 +207,8 @@ public class MainActivity extends AppCompatActivity{
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        new MenuInflater(this).inflate(R.menu.main_menu,menu);
+//        new MenuInflater(this).inflate(R.menu.main_menu,menu);
+        this.getMenuInflater().inflate(R.menu.main_menu,menu);
         return super.onCreateOptionsMenu(menu);
     }
 
@@ -227,5 +236,26 @@ public class MainActivity extends AppCompatActivity{
             startActivity(intent);
         }
         return super.onOptionsItemSelected(item);
+    }
+
+
+    // bottom Navigation View
+    @Override
+    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()){
+            case R.id.save_frag_menu:
+                Intent intent1 = new Intent(getApplicationContext(),SaveActivity.class);
+                startActivity(intent1);
+                return true;
+            case R.id.cart_frag_menu:
+                Intent intent2 = new Intent(getApplicationContext(),CartActivity.class);
+                startActivity(intent2);
+                return true;
+            case R.id.check_frag_menu:
+                Intent intent3 = new Intent(getApplicationContext(),CheckActivity.class);
+                startActivity(intent3);
+                return true;
+        }
+        return false;
     }
 }

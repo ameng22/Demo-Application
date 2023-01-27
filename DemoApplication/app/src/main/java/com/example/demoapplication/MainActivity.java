@@ -65,6 +65,9 @@ public class MainActivity extends AppCompatActivity{
         tabLayout.addTab(tabLayout.newTab().setText("Settings"));
         tabLayout.addTab(tabLayout.newTab().setText("preferences"));
         tabLayout.addTab(tabLayout.newTab().setText("favourites"));
+//        tabLayout.addTab(tabLayout.newTab().setText("Settings1"));
+//        tabLayout.addTab(tabLayout.newTab().setText("preferences1"));
+//        tabLayout.addTab(tabLayout.newTab().setText("favourites1"));
         tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
 
         final myAdapter adapter = new myAdapter(this,getSupportFragmentManager(),tabLayout.getTabCount());
